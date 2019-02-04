@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="origin-trial" data-feature="Web Bluetooth" data-expires="2016-10-27" content="AhOSFFjqwOIQUX7EFtyqLN8stlBdFbNlGboLTvLSuBpgbz5OyQS0oB6t9Vc6V55SWdDZEoUw8eUtutSIG028FQkAAABgeyJvcmlnaW4iOiAiaHR0cHM6Ly9zdHJhbmdlc2FzdC5naXRodWIuaW86NDQzIiwgImZlYXR1cmUiOiAiV2ViQmx1ZXRvb3RoIiwgImV4cGlyeSI6IDE0Nzc1OTIzNTF9">
-    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='buttons.css'>
   </head>
   <body>
-    <h1>Pizza Builder</h1>
-    <p>Connect to your bluetooth-pizza-oven peripheral then choose your crust, toppings, and oven temperature.</p>
-    <button id="start" onclick="onStartButtonClick()">Connect to "oven"</button>
-    <h3>Crust</h3>
+    <h1>Projector controller</h1>
+    <p>Connect to your bluetooth-projector peripheral then choose your keystone angle</p>
+
+    <div class="flex">
+        <a id="start" onclick="onStartButtonClick()" class='glowBtn hover'>Connect to projector</a> <!-- active -->
+    </div>
+    
+
     <div id="crust">
       <select id="crust-type">
         <option value="0">NORMAL</option>
@@ -19,6 +23,26 @@
         <option value="2">THIN</option>
       </select>
     </div>
+
+
+    <div id='wrapper'>
+      <div class="flex">
+          <fieldset>
+              <h2>Keystone</h2>
+              <a class='glowBtn control'>-</a>
+              <a class='glowBtn control'>/</a>
+            </fieldset>
+      </div>
+      <div class="flex">
+          <fieldset>
+              <h2>Reset</h2>
+              <a class='superBtn'>0° keystone</a>
+          </fieldset>
+      </div>
+    </div>
+    
+
+
     <h3>Toppings</h3>
     <div id="toppings">
       <input id="topping-NONE" name="toppings" type="checkbox" value="0">
@@ -48,10 +72,6 @@
     <button id="bake" onclick="onBakeButtonClick()">Go!</button>
     <h3>Response</h3>
     <pre id="output">Your browser does not support web bluetooth or javascript is disabled...</pre>
-    <h3>Credits</h3>
-    <p>Built to utilize the fantastic <a href="https://github.com/sandeepmistry/bleno">bleno</a> module and its <a href="https://github.com/sandeepmistry/bleno/tree/master/examples/pizza">pizza service example</a>.</p>
-    <p>Check out more web bluetooth examples <a href="https://googlechrome.github.io/samples/web-bluetooth/">here</a> and <a href="https://webbluetoothcg.github.io/demos/">here</a>.</p>
-    <p>Code <a href="https://github.com/strangesast/bleno-web-pizza-example">here</a></p>
     <script src='index.js'></script>
   </body>
 </html>
