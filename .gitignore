@@ -145,6 +145,3 @@ packaged.yaml
 
 .idea/
 .idea/workspace.xml
-
-**/*.css
-**/*.css.map
