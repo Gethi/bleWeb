@@ -18,6 +18,8 @@ var ovenTempEl = document.getElementById('oven-temperature');
 var crustTypeEl = document.getElementById('crust-type');
 var outputEl = document.getElementById('output');
 
+var pulseValue = 1500;
+
 // ¯\_(ツ)_/¯
 function swap16(val) {
   // le to be
@@ -132,14 +134,31 @@ var onStartButtonClick = function(e) {
   });
 };
 
-var onBakeButtonClick = function(e) {
+var onBakeButtonClick = function(value = 'reset') {
   if(ovenServer == null || !ovenServer.connected) {
     alert('Not connected!');
     return;
   }
+
+  var sendVal = 0;
+  if(value === 'reset') {
+    pulseValue = 1500;
+  } else  if(value === '-') {
+    pulseValue -= 150;
+  } else  if(value === '+') {
+    pulseValue += 150;
+  }
+
+  if(pulseValue < 550) {
+    pulseValue = 550;
+  } else if(pulseValue > 2500) {
+    pulseValue = 2500;
+  }
+
+
   readyCrust(getCrustType())
   .then(() => readyToppings(getToppings()))
-  .then(() => bakePizza(getOvenTemperature()))
+  .then(() => bakePizza(pulseValue))
 };
 
 var log = function(text) {

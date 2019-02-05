@@ -18,7 +18,7 @@
 
     <div id="crust">
       <select id="crust-type">
-        <option value="0">NORMAL</option>
+        <option value="0" selected>NORMAL</option>
         <option value="1">DEEP_DISH</option>
         <option value="2">THIN</option>
       </select>
@@ -29,24 +29,21 @@
       <div class="flex">
           <fieldset>
               <h2>Keystone</h2>
-              <a class='glowBtn control'>-</a>
-              <a class='glowBtn control'>/</a>
+              <a class='glowBtn control' onclick="onBakeButtonClick('-')">-</a>
+              <a class='glowBtn control' onclick="onBakeButtonClick('+')">/</a>
             </fieldset>
       </div>
       <div class="flex">
           <fieldset>
               <h2>Reset</h2>
-              <a class='superBtn'>0° keystone</a>
+              <a class='superBtn' onclick="onBakeButtonClick('reset')">0° keystone</a>
           </fieldset>
       </div>
     </div>
     
-
-
-    <h3>Toppings</h3>
     <div id="toppings">
-      <input id="topping-NONE" name="toppings" type="checkbox" value="0">
-      <label for="topping-NONE">NONE</label>
+      <input id="topping-NONE" name="toppings" type="checkbox" value="0" checked>
+      <!-- <label for="topping-NONE">NONE</label>
       <input id="topping-PEPPERONI" name="toppings" type="checkbox" value="1">
       <label for="topping-PEPPERONI">PEPPERONI</label>
       <input id="topping-MUSHROOMS" name="toppings" type="checkbox" value="2">
@@ -62,14 +59,14 @@
       <input id="topping-BELL_PEPPERS" name="toppings" type="checkbox" value="64">
       <label for="topping-BELL_PEPPERS">BELL_PEPPERS</label>
       <input id="topping-SAUSAGE" name="toppings" type="checkbox" value="128">
-      <label for="topping-SAUSAGE">SAUSAGE</label>
+      <label for="topping-SAUSAGE">SAUSAGE</label> -->
     </div>
-    <h3>Oven Temperature</h3>
+    <h3>Currentvalue</h3>
     <div id="oven">
-      <input id="oven-temperature" type="number" min="0" max="1200" value="400">
+      <input id="oven-temperature" type="number" min="500" max="2500" value="1500">
     </div>
-    <h3>Bake</h3>
-    <button id="bake" onclick="onBakeButtonClick()">Go!</button>
+    <!-- <h3>Bake</h3>
+    <button id="bake" onclick="onBakeButtonClick(1500)">Go!</button> -->
     <h3>Response</h3>
     <pre id="output">Your browser does not support web bluetooth or javascript is disabled...</pre>
     <script src='index.js'></script>
