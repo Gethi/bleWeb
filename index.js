@@ -144,9 +144,9 @@ var onBakeButtonClick = function(value = 'reset') {
   if(value === 'reset') {
     pulseValue = 1500;
   } else  if(value === '-') {
-    pulseValue -= 150;
+    pulseValue -= 90;
   } else  if(value === '+') {
-    pulseValue += 150;
+    pulseValue += 90;
   }
 
   if(pulseValue < 550) {
